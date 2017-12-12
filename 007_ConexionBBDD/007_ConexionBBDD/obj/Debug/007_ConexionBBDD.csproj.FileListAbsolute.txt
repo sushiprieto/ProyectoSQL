@@ -1,0 +1,17 @@
+C:\VisualStudio2017\DI\007_ConexionBBDD\007_ConexionBBDD\bin\Debug\007_ConexionBBDD.exe.config
+C:\VisualStudio2017\DI\007_ConexionBBDD\007_ConexionBBDD\bin\Debug\007_ConexionBBDD.exe
+C:\VisualStudio2017\DI\007_ConexionBBDD\007_ConexionBBDD\bin\Debug\007_ConexionBBDD.pdb
+C:\VisualStudio2017\DI\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\007_ConexionBBDD.csprojResolveAssemblyReference.cache
+C:\VisualStudio2017\DI\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\View\MainWindow.g.cs
+C:\VisualStudio2017\DI\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\App.g.cs
+C:\VisualStudio2017\DI\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\007_ConexionBBDD_MarkupCompile.cache
+C:\VisualStudio2017\DI\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\007_ConexionBBDD_MarkupCompile.lref
+C:\VisualStudio2017\DI\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\View\MainWindow.baml
+C:\VisualStudio2017\DI\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\007_ConexionBBDD.g.resources
+C:\VisualStudio2017\DI\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\_007_ConexionBBDD.Properties.Resources.resources
+C:\VisualStudio2017\DI\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\007_ConexionBBDD.csproj.GenerateResource.Cache
+C:\VisualStudio2017\DI\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\007_ConexionBBDD.csproj.CoreCompileInputs.cache
+C:\VisualStudio2017\DI\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\007_ConexionBBDD.exe
+C:\VisualStudio2017\DI\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\007_ConexionBBDD.pdb
+C:\VisualStudio2017\DI\007_ConexionBBDD\007_ConexionBBDD\bin\Debug\MySql.Data.dll
+C:\VisualStudio2017\DI\007_ConexionBBDD\007_ConexionBBDD\bin\Debug\MySql.Data.xml
