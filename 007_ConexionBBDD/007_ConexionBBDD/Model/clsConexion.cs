@@ -37,7 +37,7 @@ namespace _007_ConexionBBDD.Model
 
         public bool OpenConnection()
         {
-            MySqlConnection connection = new MySqlConnection();
+            connection = new MySqlConnection();
             try
             {
 
@@ -51,7 +51,6 @@ namespace _007_ConexionBBDD.Model
             catch (MySqlException e)
             {
                 throw e;
-                return false;
             }
 
         }
@@ -66,7 +65,6 @@ namespace _007_ConexionBBDD.Model
             catch (MySqlException ex)
             {
                 throw ex;
-                return false;
             }
         }
 

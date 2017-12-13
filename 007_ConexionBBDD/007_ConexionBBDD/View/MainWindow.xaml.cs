@@ -25,43 +25,31 @@ namespace _007_ConexionBBDD
     public partial class MainWindow : Window
     {
 
-        clsConexion mConexion;
+        MySqlConnection connection;
+
+        string user, password, database, port, server;
+        string connStr;
 
         public MainWindow()
         {
             InitializeComponent();
-            mConexion = new clsConexion();
+
+            user = "root";
+            password = "root";
+            database = "colegio";
+            port = "3306";
+            server = "localhost";
+
+            connStr = "server=" + server + ";user=" + user + ";database=" + database + ";port=" + port + ";password=" + password; 
+
+            mostrarAlumnos();
+
         }
 
         private void btnLoadDataGrid_Click(object sender, RoutedEventArgs e)
         {
-            string password = "root";
-            string connStr = "server=localhost;user=root;database=colegio;port=3306;password=" + password;
-            MySqlConnection conn = new MySqlConnection(connStr);
-            conn.Open();
 
-            MySqlCommand cmd = new MySqlCommand("SELECT AlumnoID,Nombre,Apellidos,Curso,Sexo,NotaExamen FROM alumno", conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-
-            adp.Fill(ds, "LoadDataBinding");
-            dataGridCustomers.DataContext = ds;
-
-            conn.Close();
-
-
-            //List<string>[] list;
-            //list = mConexion.Select();
-
-            //dataGridCustomers.Row.Clear();
-            //for (int i = 0; i < list[0].Count; i++)
-            //{
-            //    int number = dataGridCustomers.Row
-            //    dataGridCustomers.Rows[number].Cells[0].Value = list[0][i];
-            //    dataGridCustomers.Rows[number].Cells[1].Value = list[1][i];
-            //    dataGridCustomers.Rows[number].Cells[2].Value = list[2][i];
-            //}
-
+            mostrarAlumnos();
 
         }
 
@@ -70,21 +58,27 @@ namespace _007_ConexionBBDD
 
             try
             {
-                string MyConnection2 = "server=localhost;user=root;database=colegio;port=3306;password=root";
-                string Query = "delete from alumno where AlumnoID='" + this.txbId.Text + "';";
-                MySqlConnection MyConn2 = new MySqlConnection(MyConnection2);
-                MySqlCommand MyCommand2 = new MySqlCommand(Query, MyConn2);
-                MySqlDataReader MyReader2;
-                MyConn2.Open();
-                MyReader2 = MyCommand2.ExecuteReader();
-                MessageBox.Show("Data Deleted");
                 
-                MyConn2.Close();
+                string query = "DELETE FROM alumno WHERE AlumnoID='" + this.txbId.Text + "';";
+
+                connection = new MySqlConnection(connStr);
+                MySqlCommand mCommand = new MySqlCommand(query, connection);
+                MySqlDataReader mReader;
+
+                connection.Open();
+
+                mReader = mCommand.ExecuteReader();
+
+                MessageBox.Show("Alumno borrado con éxito!");
+
+                connection.Close();
+
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message);
+
             }
 
         }
@@ -96,5 +90,25 @@ namespace _007_ConexionBBDD
             win.Show();
 
         }
+
+        private void mostrarAlumnos()
+        {
+
+            connection = new MySqlConnection(connStr);
+            connection.Open();
+
+            string query = "SELECT * FROM alumno";
+
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+
+            adp.Fill(ds, "CargarAlumno");
+            dataGridCustomers.DataContext = ds;
+
+            connection.Close();
+
+        }
+
     }
 }
