@@ -9,11 +9,12 @@
 
     <StackPanel Background="#C8E6C9" Orientation="Vertical">
 
-        <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
+        <StackPanel Orientation="Horizontal" Margin="10,30,10,0">
 
             <Button x:Name="btnLoadDataGrid" Content="Mostrar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" ToolTip="Mostrar Alumnos" Click="btnLoadDataGrid_Click"/>
 
-            <TextBox x:Name="txbId" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,0,10,0" Width="75"/>
+            <TextBlock Text="Introduce ID :" Margin="50,0,10,0"/>
+            <TextBox x:Name="txbId" HorizontalAlignment="Left" Margin="0,0,10,0" MinWidth="40"/>
             <Button x:Name="btnBorrar" Content="Borrar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" ToolTip="Borrar un Alumno" Click="btnBorrar_Click"/>
 
             <Button x:Name="btnAdd" Content="Añadir" HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Top" Width="75" ToolTip="Click to populate Data Grid" Click="btnAdd_Click"/>
@@ -29,7 +30,7 @@
                 <DataGridTextColumn Foreground="#FF4081" Binding="{Binding Path=Apellidos}" Header="Apellidos" Width="100"/>
                 <DataGridTextColumn Foreground="#FF4081" Binding="{Binding Path=Curso}" Header="Curso" Width="80"/>
                 <DataGridTextColumn Foreground="#FF4081" Binding="{Binding Path=Sexo}" Header="Sexo" Width="40"/>
-                <DataGridTextColumn Foreground="#FF4081" Binding="{Binding Path=NotaExamen}" Header="Nota Examen" Width="90"/>
+                <DataGridTextColumn Foreground="#FF4081" Binding="{Binding Path=NotaExamen}" Header="Nota Exmen" Width="90"/>
             </DataGrid.Columns>
         </DataGrid>
         
