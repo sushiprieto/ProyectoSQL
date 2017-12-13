@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\GitHubProjects\DI\ProyetoSQL\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\
+C:\VisualStudio2017\DI\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\
 _007_ConexionBBDD
 none
 false
 DEBUG;TRACE
-C:\GitHubProjects\DI\ProyetoSQL\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\App.xaml
-1-1711142684
+C:\VisualStudio2017\DI\007_ConexionBBDD\007_ConexionBBDD\App.xaml
+21851725751
 
-10126447214
+121112147778
 14-1429938243
-View\MainWindow.xaml;
+View\AddWindow.xaml;View\MainWindow.xaml;
 
-True
+False
 

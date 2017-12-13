@@ -11,6 +11,7 @@ namespace _007_ConexionBBDD.Model
     {
 
         //Atributos
+        public MySqlConnection connection;
         public String host { get; set; }
         public String dataBase { get; set; }
         public String user { get; set; }
@@ -34,35 +35,79 @@ namespace _007_ConexionBBDD.Model
             this.host = host;
         }
 
-        public MySqlConnection getConnection()
+        public bool OpenConnection()
         {
             MySqlConnection connection = new MySqlConnection();
             try
             {
 
-                connection.ConnectionString = string.Format("server={0};database={1};uid={2};pwd={3};", host, dataBase, user, pass);
-                
-
+                //connection.ConnectionString = string.Format("server={0};database={1};uid={2};pwd={3};", host, dataBase, user, pass);
+                string connStr = "server=localhost;user=root;database=colegio;port=3306;password=root";
+                connection = new MySqlConnection(connStr);
                 connection.Open();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
 
-            return connection;
+                return true;
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+                return false;
+            }
 
         }
 
-        public void closeConnection(ref MySqlConnection connection)
+        public bool CloseConnection()
         {
             try
             {
                 connection.Close();
+                return true;
             }
-            catch (Exception)
+            catch (MySqlException ex)
             {
-                throw;
+                throw ex;
+                return false;
+            }
+        }
+
+        public List<string>[] Select()
+        {
+            string query = "SELECT * FROM alumno";
+
+            //Create a list to store the result
+            List<string>[] list = new List<string>[3];
+            list[0] = new List<string>();
+            list[1] = new List<string>();
+            list[2] = new List<string>();
+
+            //Open connection
+            if (OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+                while (dataReader.Read())
+                {
+                    list[0].Add(dataReader["AlumnoID"] + "");
+                    list[1].Add(dataReader["Nombre"] + "");
+                    list[2].Add(dataReader["Apellidos"] + "");
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                CloseConnection();
+
+                //return list to be displayed
+                return list;
+            }
+            else
+            {
+                return list;
             }
         }
 

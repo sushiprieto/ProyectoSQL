@@ -5,39 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_007_ConexionBBDD"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="500" Width="700">
+    
     <Grid>
-        <Button x:Name="btnLoadDataGrid" Content="Populate Data Grid" HorizontalAlignment="Left" Margin="387,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.884,-0.64" ToolTip="Click to populate Data Grid" Cursor="UpArrow" Click="btnLoadDataGrid_Click"/>
-        <DataGrid x:Name="DataGrid" ItemsSource="{Binding LoadDataBinding}"
-                  HorizontalAlignment="Left" Margin="0,56,0,0" VerticalAlignment="Top" Height="255" Width="518"/>
-        <TextBlock x:Name="Title_Block" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Data Grid Sample" VerticalAlignment="Top" Height="20" Width="132"/>
-        <DataGrid Name="dataGridCustomers" 
-                      ItemsSource="{Binding LoadDataBinding}"
-                      AutoGenerateColumns="False" 
-                      HorizontalAlignment="Left" 
-                      Margin="14,55,0,46"
-                      Width="496" 
-                      CanUserResizeRows="False" 
-                      >
+
+        <StackPanel Orientation="Horizontal">
+
+            <Button x:Name="btnLoadDataGrid" Content="Mostrar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" ToolTip="Mostrar Alumnos" Click="btnLoadDataGrid_Click"/>
+
+            <TextBox x:Name="txbId" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,0,0,0" Width="75"/>
+            <Button x:Name="btnBorrar" Content="Borrar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" ToolTip="Borrar un Alumno" Click="btnBorrar_Click"/>
+
+            <Button x:Name="btnAdd" Content="Añadir" HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Top" Width="75" ToolTip="Click to populate Data Grid" Click="btnAdd_Click"/>
+
+        </StackPanel>
+        
+        
+        <DataGrid x:Name="dataGridCustomers" ItemsSource="{Binding LoadDataBinding}" AutoGenerateColumns="False" HorizontalAlignment="Center" Margin="30" CanUserResizeRows="False" CanUserResizeColumns="False" IsReadOnly="True">
             <!--Columns in the Data Grid-->
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=AlumnoID}" 
-                                        Header="Customer #" 
+                                        Header="ID" 
                                         Width="75"
                                         IsReadOnly="True" />
                 <DataGridTextColumn Binding="{Binding Path=Nombre}" 
-                                        Header="First" 
+                                        Header="Nombre" 
                                         Width="100"
                                         IsReadOnly="True" />
                 <DataGridTextColumn Binding="{Binding Path=Apellidos}"
-                                        Header="Last"
+                                        Header="Apellidos"
                                         Width="100"
                                         IsReadOnly="True" />
                 <DataGridTextColumn Binding="{Binding Path=Curso}" 
-                                        Header="Email" 
-                                        Width="150"
+                                        Header="Curso" 
+                                        Width="80"
+                                        IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=Sexo}" 
+                                        Header="Sexo" 
+                                        Width="40"
+                                        IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Path=NotaExamen}" 
+                                        Header="Nota Examen" 
+                                        Width="90"
                                         IsReadOnly="True" />
             </DataGrid.Columns>
         </DataGrid>
+        
     </Grid>
 </Window>
