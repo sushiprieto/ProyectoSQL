@@ -8,7 +8,7 @@
         Title="AddWindow" Height="300" Width="300">
     <StackPanel>
 
-        <Grid>
+        <Grid Margin="0,20,0,0">
         
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>

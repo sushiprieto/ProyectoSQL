@@ -109,5 +109,76 @@ namespace _007_ConexionBBDD.Model
             }
         }
 
+        public bool InsertarAlumno(string id, string nombre, string apellidos, string curso, string sexo, string nota)
+        {
+
+            try
+            {
+
+                string connStr = "server=localhost;user=root;database=colegio;port=3306;password=root";
+                connection = new MySqlConnection(connStr);
+
+                //This is my insert query in which i am taking input from the user through windows forms
+                string query = "INSERT INTO alumno(AlumnoID, Nombre, Apellidos, Curso, Sexo, NotaExamen) VALUES('" + id + "','" + nombre + "','" + apellidos + "','" + curso + "','" + sexo + "','" + nota + "');";
+
+                //This is  MySqlConnection here i have created the object and pass my connection string.
+                connection = new MySqlConnection(connStr);
+
+                //This is command class which will handle the query and connection object.
+                MySqlCommand MyCommand2 = new MySqlCommand(query, connection);
+                MySqlDataReader MyReader2;
+
+                connection.Open();
+
+                // Here our query will be executed and data saved into the database.
+                MyReader2 = MyCommand2.ExecuteReader();              
+
+                connection.Close();
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+
+            }
+
+        }
+
+        public bool BorrarAlumno(string id)
+        {
+
+            try
+            {
+               
+                string connStr = "server=localhost;user=root;database=colegio;port=3306;password=root";
+                connection = new MySqlConnection(connStr);
+
+                string query = "DELETE FROM alumno WHERE AlumnoID='" + id + "';";
+                     
+                connection = new MySqlConnection(connStr);
+                MySqlCommand mCommand = new MySqlCommand(query, connection);
+                MySqlDataReader mReader;
+
+                connection.Open();
+
+                mReader = mCommand.ExecuteReader();
+            
+                connection.Close();
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+
+            }
+
+        }
+
     }
 }

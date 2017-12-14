@@ -22,23 +22,14 @@ namespace _007_ConexionBBDD.View
     public partial class AddWindow : Window
     {
 
-        MySqlConnection connection;
-
-        string user, password, database, port, server;
-        string connStr;
+        clsConexion conn;
 
         public AddWindow()
         {
 
             InitializeComponent();
 
-            user = "root";
-            password = "root";
-            database = "colegio";
-            port = "3306";
-            server = "localhost";
-
-            connStr = "server=" + server + ";user=" + user + ";database=" + database + ";port=" + port + ";password=" + password;
+            conn = new clsConexion();
 
         }
 
@@ -47,25 +38,10 @@ namespace _007_ConexionBBDD.View
 
             try
             {
-               
-                //This is my insert query in which i am taking input from the user through windows forms
-                string query = "insert into alumno(AlumnoID, Nombre, Apellidos, Curso, Sexo, NotaExamen) values('" + this.txbID.Text + "','" + this.txbNombre.Text + "','" + this.txbApellidos.Text + "','" + this.txbCurso.Text + "','" + this.txbSexo.Text + "','" + this.txbNotaExamen.Text + "');";
                 
-                //This is  MySqlConnection here i have created the object and pass my connection string.
-                connection = new MySqlConnection(connStr);
-                
-                //This is command class which will handle the query and connection object.
-                MySqlCommand MyCommand2 = new MySqlCommand(query, connection);
-                MySqlDataReader MyReader2;
-
-                connection.Open();
-
-                // Here our query will be executed and data saved into the database.
-                MyReader2 = MyCommand2.ExecuteReader();
+                conn.InsertarAlumno(txbID.Text, txbNombre.Text, txbApellidos.Text, txbCurso.Text, txbSexo.Text, txbNotaExamen.Text);
 
                 Close();
-
-                connection.Close();
 
             }
             catch (Exception ex)

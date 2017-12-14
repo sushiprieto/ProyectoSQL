@@ -27,12 +27,17 @@ namespace _007_ConexionBBDD
 
         MySqlConnection connection;
 
+        clsConexion cone;
+
         string user, password, database, port, server;
         string connStr;
 
         public MainWindow()
         {
+
             InitializeComponent();
+
+            cone = new clsConexion();
 
             user = "root";
             password = "root";
@@ -58,20 +63,9 @@ namespace _007_ConexionBBDD
 
             try
             {
-                
-                string query = "DELETE FROM alumno WHERE AlumnoID='" + this.txbId.Text + "';";
 
-                connection = new MySqlConnection(connStr);
-                MySqlCommand mCommand = new MySqlCommand(query, connection);
-                MySqlDataReader mReader;
-
-                connection.Open();
-
-                mReader = mCommand.ExecuteReader();
-
-                MessageBox.Show("Alumno borrado con éxito!");
-
-                connection.Close();
+                cone.BorrarAlumno(txbId.Text);
+                MessageBox.Show("Alumno Eliminado");
 
             }
             catch (Exception ex)
