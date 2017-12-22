@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\App.xaml
-21851725751
+3953570416
 
-13131648053
-14-1429938243
-View\AddWindow.xaml;View\MainWindow.xaml;
+14-1636842847
+14-247784174
+View\AddWindow.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;
 
-False
+True
 

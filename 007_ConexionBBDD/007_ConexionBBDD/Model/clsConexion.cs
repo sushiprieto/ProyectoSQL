@@ -4,6 +4,7 @@ using MySql.Data.MySqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace _007_ConexionBBDD.Model
 {

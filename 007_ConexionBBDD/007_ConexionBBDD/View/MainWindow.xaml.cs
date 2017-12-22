@@ -93,6 +93,9 @@ namespace _007_ConexionBBDD
                 cone.BorrarAlumno(ID);
                 MessageBox.Show("Alumno Eliminado");
 
+                //Actualizamos el datagrid
+                mostrarAlumnos();
+
             }
             catch (Exception ex)
             {

@@ -52,4 +52,5 @@ C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\007
 C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\007_ConexionBBDD.csproj.CoreCompileInputs.cache
 C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\007_ConexionBBDD.exe
 C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\007_ConexionBBDD.pdb
-C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\bin\Debug\MySql.Data.dll
+C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\View\LoginWindow.g.cs
+C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\View\LoginWindow.baml
