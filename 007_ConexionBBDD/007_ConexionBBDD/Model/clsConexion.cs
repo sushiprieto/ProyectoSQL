@@ -68,47 +68,6 @@ namespace _007_ConexionBBDD.Model
             }
         }
 
-        public List<string>[] Select()
-        {
-            string query = "SELECT * FROM alumno";
-
-            //Create a list to store the result
-            List<string>[] list = new List<string>[3];
-            list[0] = new List<string>();
-            list[1] = new List<string>();
-            list[2] = new List<string>();
-
-            //Open connection
-            if (OpenConnection() == true)
-            {
-                //Create Command
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                //Create a data reader and Execute the command
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                //Read the data and store them in the list
-                while (dataReader.Read())
-                {
-                    list[0].Add(dataReader["AlumnoID"] + "");
-                    list[1].Add(dataReader["Nombre"] + "");
-                    list[2].Add(dataReader["Apellidos"] + "");
-                }
-
-                //close Data Reader
-                dataReader.Close();
-
-                //close Connection
-                CloseConnection();
-
-                //return list to be displayed
-                return list;
-            }
-            else
-            {
-                return list;
-            }
-        }
-
         public bool InsertarAlumno(string id, string nombre, string apellidos, string curso, string sexo, string nota)
         {
 
@@ -132,6 +91,44 @@ namespace _007_ConexionBBDD.Model
 
                 // Here our query will be executed and data saved into the database.
                 MyReader2 = MyCommand2.ExecuteReader();              
+
+                connection.Close();
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+
+            }
+
+        }
+
+        public bool ActualizarAlumno(string id, string nombre, string apellidos, string curso, string sexo, string nota)
+        {
+
+            try
+            {
+
+                string connStr = "server=localhost;user=root;database=colegio;port=3306;password=root";
+                connection = new MySqlConnection(connStr);
+
+                //This is my insert query in which i am taking input from the user through windows forms
+                string query = "UPDATE alumno SET Nombre = '" + nombre + "', Apellidos = '" + apellidos + "', Curso = '" + curso + "', Sexo = '" + sexo + "', NotaExamen = '" + nota + "'  WHERE AlumnoID = " + id + ";";
+
+                //This is  MySqlConnection here i have created the object and pass my connection string.
+                connection = new MySqlConnection(connStr);
+
+                //This is command class which will handle the query and connection object.
+                MySqlCommand MyCommand2 = new MySqlCommand(query, connection);
+                MySqlDataReader MyReader2;
+
+                connection.Open();
+
+                // Here our query will be executed and data saved into the database.
+                MyReader2 = MyCommand2.ExecuteReader();
 
                 connection.Close();
 
