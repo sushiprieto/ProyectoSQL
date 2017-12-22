@@ -4,21 +4,37 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_007_ConexionBBDD.View"
+        xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="320" Width="300" FontSize="14" Background="#C8E6C9">
+        Title="LoginWindow" Height="400" Width="350" FontSize="14" Background="#C8E6C9">
     
     <Border Background="#2e3137" CornerRadius="20" Margin="20">
         
         <StackPanel Margin="20">
 
             <Label Content="Login" Foreground="#C8E6C9" FontSize="25" HorizontalAlignment="Center"/>
-            <Separator></Separator>
-            <Label Content="Usuario" Foreground="#C8E6C9"/>
-            <TextBox Name="txbUsername" Background="#545d6a" Foreground="White" FontSize="18"/>
-            <Label Content="Contraseña" Foreground="#C8E6C9"/>
-            <PasswordBox Name="txbPassword" Background="#545d6a" Foreground="White" FontSize="18"/>
-            <Button Name="btnSubmit" Click="btnSubmit_Click" Content="Logearse" Margin="60 10" Background="#545d6a" Foreground="#C8E6C9" FontSize="18"/>
             
+            <Separator></Separator>
+
+            <StackPanel Orientation="Horizontal">
+                <materialdesign:PackIcon Kind="Account" VerticalAlignment="Center"/>
+                <Label Content="Usuario" Foreground="#C8E6C9"/>
+            </StackPanel>
+            <TextBox Name="txbUsername" Background="#545d6a" Foreground="White" FontSize="18"/>
+
+            <StackPanel Orientation="Horizontal">
+                <materialdesign:PackIcon Kind="Key" VerticalAlignment="Center"/>
+                <Label Content="Contraseña" Foreground="#C8E6C9"/>
+            </StackPanel>
+            <PasswordBox Name="txbPassword" Background="#545d6a" Foreground="White" FontSize="18"/>
+
+            <StackPanel Orientation="Horizontal">
+                <materialdesign:PackIcon Kind="Login" VerticalAlignment="Center"/>
+                <TextBlock Text="Registrarse" Foreground="#C8E6C9" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp"/>
+            </StackPanel>
+
+            <Button x:Name="btnSubmit" Click="btnSubmit_Click" Content="Logearse" Margin="60, 20, 60, 0" Style="{StaticResource MaterialDesignRaisedAccentButton}" ToolTip="Logearse a la aplicación"/>
+
         </StackPanel>
         
     </Border>

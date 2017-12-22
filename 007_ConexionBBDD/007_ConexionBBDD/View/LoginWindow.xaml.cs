@@ -73,5 +73,13 @@ namespace _007_ConexionBBDD.View
             }
 
         }
+
+        private void TextBlock_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
+            RegistroWindow registro = new RegistroWindow();
+            registro.Show();
+
+        }
     }
 }

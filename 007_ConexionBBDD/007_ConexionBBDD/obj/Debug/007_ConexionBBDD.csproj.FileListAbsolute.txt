@@ -37,7 +37,6 @@ C:\GitHubProjects\DI\ProyetoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\View
 C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\bin\Debug\007_ConexionBBDD.exe.config
 C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\bin\Debug\007_ConexionBBDD.exe
 C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\bin\Debug\007_ConexionBBDD.pdb
-C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\bin\Debug\MySql.Data.xml
 C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\007_ConexionBBDD.csprojResolveAssemblyReference.cache
 C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\View\AddWindow.g.cs
 C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\View\MainWindow.g.cs
@@ -54,3 +53,10 @@ C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\007
 C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\007_ConexionBBDD.pdb
 C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\View\LoginWindow.g.cs
 C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\View\LoginWindow.baml
+C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\bin\Debug\MaterialDesignColors.dll
+C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\App.baml
+C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\View\RegistroWindow.g.cs
+C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\View\RegistroWindow.baml

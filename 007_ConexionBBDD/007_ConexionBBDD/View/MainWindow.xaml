@@ -5,27 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_007_ConexionBBDD"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="700">
+        Title="MainWindow" Height="500" Width="1000">
 
-    <StackPanel Background="#C8E6C9" Orientation="Vertical">
+    <StackPanel  Orientation="Vertical">
 
         <StackPanel Orientation="Horizontal" Margin="10,30,10,0">
 
-            <Button x:Name="btnLoadDataGrid" Content="Mostrar" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" ToolTip="Mostrar Alumnos" Click="btnLoadDataGrid_Click"/>
-
-            <Button x:Name="btnAdd" Content="Añadir" HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Top" Width="75" ToolTip="Click to populate Data Grid" Click="btnAdd_Click"/>
+            <!--<Button x:Name="btnLoadDataGrid" Content="Mostrar" Background="#FF4081" Foreground="#C8E6C9" HorizontalAlignment="Left" VerticalAlignment="Top" ToolTip="Mostrar Alumnos" Click="btnLoadDataGrid_Click"/>-->
+            <Button x:Name="btnLoadDataGrid" Click="btnLoadDataGrid_Click" Content="Mostrar" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource MaterialDesignRaisedAccentButton}" ToolTip="Mostrar Alumnos"/>
+            
+            <!--<Button x:Name="btnAdd" Content="Añadir" Background="#FF4081" Foreground="#C8E6C9" HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Top" Width="75" ToolTip="Click to populate Data Grid" Click="btnAdd_Click"/>-->
+            <Button x:Name="btnAdd" Click="btnAdd_Click" Content="Añadir" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,0,0,0" Style="{StaticResource MaterialDesignRaisedAccentButton}" ToolTip="Añadir un alumno"/>
 
         </StackPanel>
 
-
-        <DataGrid x:Name="dataGridCustomers" Background="#C8E6C9" ItemsSource="{Binding CargarAlumno}" AutoGenerateColumns="False" HorizontalAlignment="Center" Margin="0,30,0,0" CanUserResizeRows="False" CanUserResizeColumns="False">
+        <DataGrid x:Name="dataGridCustomers" ItemsSource="{Binding CargarAlumno}" AutoGenerateColumns="False" HorizontalAlignment="Center" Margin="0,30,0,0" CanUserResizeRows="False" CanUserResizeColumns="False">
             <!--Columns in the Data Grid-->
             <DataGrid.Columns>
-                <DataGridTextColumn Foreground="#FF4081" Binding="{Binding Path=AlumnoID}" Header="ID" Width="75"/>
+                <DataGridTextColumn Foreground="#FF4081" Binding="{Binding Path=AlumnoID}" Header="ID" Width="40"/>
                 <DataGridTextColumn Foreground="#FF4081" Binding="{Binding Path=Nombre}" Header="Nombre" Width="100"/>
                 <DataGridTextColumn Foreground="#FF4081" Binding="{Binding Path=Apellidos}" Header="Apellidos" Width="100"/>
                 <DataGridTextColumn Foreground="#FF4081" Binding="{Binding Path=Curso}" Header="Curso" Width="80"/>
-                <DataGridTextColumn Foreground="#FF4081" Binding="{Binding Path=Sexo}" Header="Sexo" Width="40"/>
+                <DataGridTextColumn Foreground="#FF4081" Binding="{Binding Path=Sexo}" Header="Sexo" Width="55"/>
                 <DataGridTextColumn Foreground="#FF4081" Binding="{Binding Path=NotaExamen}" Header="Nota Exmen" Width="90"/>
 
                 <DataGridTemplateColumn Header="EDITAR">

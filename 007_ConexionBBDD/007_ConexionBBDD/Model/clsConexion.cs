@@ -69,6 +69,40 @@ namespace _007_ConexionBBDD.Model
             }
         }
 
+        public bool Registro(string usuario, string clave)
+        {
+
+            try
+            {
+
+                string connStr = "server=localhost;user=root;database=colegio;port=3306;password=root";
+                connection = new MySqlConnection(connStr);
+                
+                string query = "INSERT INTO loginalumno(Usuario, Clave) VALUES('" + usuario + "','" + clave + "');";
+                
+                connection = new MySqlConnection(connStr);
+                
+                MySqlCommand MyCommand2 = new MySqlCommand(query, connection);
+                MySqlDataReader MyReader2;
+
+                connection.Open();
+                
+                MyReader2 = MyCommand2.ExecuteReader();
+
+                connection.Close();
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+
+                return false;
+
+            }
+
+        }
+
         public bool InsertarAlumno(string id, string nombre, string apellidos, string curso, string sexo, string nota)
         {
 

@@ -4,9 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_007_ConexionBBDD.View"
+        xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="AddWindow" Height="320" Width="300">
-    <StackPanel Background="#C8E6C9">
+        Title="AddWindow" Height="450" Width="300">
+    <StackPanel >
 
         <Grid Margin="0,20,0,0">
         
@@ -24,27 +25,45 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="ID:" Grid.Row="0" Margin="12,8" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold"/>
-            <TextBox Name="txbID" Grid.Column="1" Margin="12,8" MinWidth="100" HorizontalAlignment="Left" />
+            <!--<TextBlock Text="ID:" Grid.Row="0" Margin="12,8" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold"/>-->
+            <TextBox Name="txbID" Grid.Column="1" Margin="12,8" MinWidth="100" HorizontalAlignment="Left" materialdesign:HintAssist.Hint="Introduzca el ID" AcceptsReturn="True" 
+                     IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignTextFieldBoxTextBoxEnabledComboBox}" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     TextWrapping="Wrap" />
 
-            <TextBlock Text="Nombre:" Grid.Row="1" Margin="12,8" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold"/>
-            <TextBox Name="txbNombre" Grid.Row="1" Grid.Column="1" Margin="12,8" MinWidth="100" HorizontalAlignment="Left" />
+            <!--<TextBlock Text="Nombre:" Grid.Row="1" Margin="12,8" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold"/>-->
+            <TextBox Name="txbNombre" Grid.Row="1" Grid.Column="1" Margin="12,8" MinWidth="100" HorizontalAlignment="Left" materialdesign:HintAssist.Hint="Introduzca el nombre" AcceptsReturn="True" 
+                     IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignTextFieldBoxTextBoxEnabledComboBox}" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     TextWrapping="Wrap" />
 
-            <TextBlock Text="Apellidos:" Grid.Row="2" Margin="12,8" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold"/>
-            <TextBox Name="txbApellidos" Grid.Row="2"  Grid.Column="1" Margin="12,8" MinWidth="150" HorizontalAlignment="Left" />
+            <!--<TextBlock Text="Apellidos:" Grid.Row="2" Margin="12,8" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold"/>-->
+            <!--<TextBox Name="txbApellidos" Grid.Row="2"  Grid.Column="1" Margin="12,8" MinWidth="150" HorizontalAlignment="Left" />-->
+            <TextBox Name="txbApellidos" Grid.Row="2"  Grid.Column="1" Margin="12,8" MinWidth="150" HorizontalAlignment="Left" materialdesign:HintAssist.Hint="Introduzca los apellidos" AcceptsReturn="True" 
+                     IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignTextFieldBoxTextBoxEnabledComboBox}" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     TextWrapping="Wrap" />
 
-            <TextBlock Text="Curso:" Grid.Row="3" Margin="12,8" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold"/>
-            <TextBox Name="txbCurso" Grid.Row="3"  Grid.Column="1" Margin="12,8" MinWidth="100" HorizontalAlignment="Left" />
+            <!--<TextBlock Text="Curso:" Grid.Row="3" Margin="12,8" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold"/>-->
+            <!--<TextBox Name="txbCurso" Grid.Row="3"  Grid.Column="1" Margin="12,8" MinWidth="100" HorizontalAlignment="Left" />-->
+            <TextBox Name="txbCurso" Grid.Row="3"  Grid.Column="1" Margin="12,10,0,10" MinWidth="100" HorizontalAlignment="Left" materialdesign:HintAssist.Hint="Introduzca el curso" AcceptsReturn="True" 
+                     IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignTextFieldBoxTextBoxEnabledComboBox}" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     TextWrapping="Wrap" />
 
-            <TextBlock Text="Sexo:" Grid.Row="4" Margin="12,8" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold"/>
-            <TextBox Name="txbSexo" Grid.Row="4"  Grid.Column="1" Margin="12,8" MinWidth="50" HorizontalAlignment="Left" />
-
-            <TextBlock Text="Nota Examen:" Grid.Row="5" Margin="12,8" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold"/>
-            <TextBox Name="txbNotaExamen" Grid.Row="5"  Grid.Column="1" Margin="12,8" MinWidth="50" HorizontalAlignment="Left" />
+            <TextBlock Text="Sexo:" Grid.Row="4" Margin="12,8" VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignSubheadingTextBlock}"/>
+            <!--<TextBox Name="txbSexo" Grid.Row="4"  Grid.Column="1" Margin="12,8" MinWidth="50" HorizontalAlignment="Left" />-->
+            <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="1">
+                <RadioButton Name="rdbHombre" Content="Hombre" VerticalAlignment="Center" Style="{StaticResource MaterialDesignRadioButton}"/>
+                <RadioButton Name="rdbMujer" Content="Mujer" VerticalAlignment="Center" Style="{StaticResource MaterialDesignRadioButton}"/>
+            </StackPanel>
+            
+            <!--<TextBlock Text="Nota Examen:" Grid.Row="5" Margin="12,8" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold"/>-->
+            <!--<TextBox Name="txbNotaExamen" Grid.Row="5"  Grid.Column="1" Margin="12,8" MinWidth="50" HorizontalAlignment="Left" />-->
+            <TextBox Name="txbNotaExamen" Grid.Row="5"  Grid.Column="1" Margin="12,8" MinWidth="50" HorizontalAlignment="Left" materialdesign:HintAssist.Hint="Introduzca la nota" AcceptsReturn="True" 
+                     IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignTextFieldBoxTextBoxEnabledComboBox}" Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                     TextWrapping="Wrap" />
 
         </Grid>
 
-        <Button x:Name="btnInsertar" Content="Insertar" MaxWidth="150" Margin="0,20,0,0" Click="btnInsertar_Click"/>
+        <!--<Button x:Name="btnInsertar" Content="Insertar" Background="#FF4081" Foreground="#C8E6C9" MaxWidth="150" Margin="0,20,0,0" Click="btnInsertar_Click"/>-->
+        <Button x:Name="btnInsertar" Click="btnInsertar_Click" Content="Insertar" Margin="60, 20, 60, 0" Style="{StaticResource MaterialDesignRaisedAccentButton}" ToolTip="Insertar Alumno"/>
 
     </StackPanel>
 </Window>

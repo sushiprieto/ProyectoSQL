@@ -36,10 +36,17 @@ namespace _007_ConexionBBDD.View
         private void btnInsertar_Click(object sender, RoutedEventArgs e)
         {
 
+            string sexo = "";
+
+            if (rdbHombre.IsChecked == true)
+                sexo = "H";
+            else if (rdbMujer.IsChecked == true)
+                sexo = "M";
+
             try
             {
                 
-                conn.InsertarAlumno(txbID.Text, txbNombre.Text, txbApellidos.Text, txbCurso.Text, txbSexo.Text, txbNotaExamen.Text);
+                conn.InsertarAlumno(txbID.Text, txbNombre.Text, txbApellidos.Text, txbCurso.Text, sexo, txbNotaExamen.Text);
 
                 Close();
 
