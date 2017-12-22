@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:_007_ConexionBBDD.View"
         mc:Ignorable="d"
         Title="AddWindow" Height="300" Width="300">
-    <StackPanel>
+    <StackPanel Background="#C8E6C9">
 
         <Grid Margin="0,20,0,0">
         

@@ -51,20 +51,46 @@ namespace _007_ConexionBBDD
 
         }
 
-        private void btnLoadDataGrid_Click(object sender, RoutedEventArgs e)
-        {
-
-            mostrarAlumnos();
-
-        }
-
-        private void btnBorrar_Click(object sender, RoutedEventArgs e)
+        private void btnEditarFila_Click(object sender, RoutedEventArgs e)
         {
 
             try
             {
 
-                cone.BorrarAlumno(txbId.Text);
+                object item = dataGridCustomers.SelectedItem;
+                string ID = (dataGridCustomers.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+                string Nombre = (dataGridCustomers.SelectedCells[1].Column.GetCellContent(item) as TextBlock).Text;
+                string Apellidos = (dataGridCustomers.SelectedCells[2].Column.GetCellContent(item) as TextBlock).Text;
+                string Curso = (dataGridCustomers.SelectedCells[3].Column.GetCellContent(item) as TextBlock).Text;
+                string Sexo = (dataGridCustomers.SelectedCells[4].Column.GetCellContent(item) as TextBlock).Text;
+                string Nota = (dataGridCustomers.SelectedCells[5].Column.GetCellContent(item) as TextBlock).Text;
+
+                //MessageBox.Show(ID + Nombre + Apellidos + Curso + Sexo + Nota);
+
+                cone.ActualizarAlumno(ID, Nombre, Apellidos, Curso, Sexo, Nota);
+
+                
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+
+            }
+
+        }
+
+        private void btnBorrarFila_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+
+                object item = dataGridCustomers.SelectedItem;
+                string ID = (dataGridCustomers.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;             
+
+                cone.BorrarAlumno(ID);
                 MessageBox.Show("Alumno Eliminado");
 
             }
@@ -74,6 +100,13 @@ namespace _007_ConexionBBDD
                 MessageBox.Show(ex.Message);
 
             }
+
+        }
+
+        private void btnLoadDataGrid_Click(object sender, RoutedEventArgs e)
+        {
+
+            mostrarAlumnos();
 
         }
 

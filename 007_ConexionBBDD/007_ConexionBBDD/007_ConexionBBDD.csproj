@@ -67,6 +67,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Informes\AlumnoDataSet.cs">
+      <DependentUpon>AlumnoDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\AlumnoDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AlumnoDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Model\clsConexion.cs" />
     <Compile Include="View\AddWindow.xaml.cs">
       <DependentUpon>AddWindow.xaml</DependentUpon>
@@ -94,6 +102,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Informes\AlumnoDataSet.xsc">
+      <DependentUpon>AlumnoDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\AlumnoDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AlumnoDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Informes\AlumnoDataSet.xss">
+      <DependentUpon>AlumnoDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
