@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Security.Cryptography;
 
 namespace _007_ConexionBBDD.View
 {
@@ -28,10 +29,34 @@ namespace _007_ConexionBBDD.View
             CenterWindowOnScreen();
         }
 
+        //static void Desencriptar(string value)
+        //{
+        //    string hash = "f0xle@rn";
+        //    byte[] datos = UTF8Encoding.UTF8.GetBytes(value);
+        //    using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+        //    {
+
+        //        //UTF8Encoding utf8 = new UTF8Encoding();
+        //        byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+        //        using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider(){Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
+        //        {
+        //            ICryptoTransform transform = tripDes.CreateDecryptor();
+        //            byte[] results = transform.TransformFinalBlock(datos, 0, datos.Length);
+        //            value = UTF8Encoding.UTF8.GetString(results);
+        //        }
+                
+
+        //    }
+
+        //}
+
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
 
             MySqlConnection sqlCon = new MySqlConnection(@"server=localhost;user=root;database=colegio;port=3306;password=root");
+
+            string usuario = txbUsername.Text;
+            string clave = txbPassword.Password;
 
             try
             {
@@ -41,10 +66,27 @@ namespace _007_ConexionBBDD.View
 
                 String query = "SELECT COUNT(1) FROM loginalumno WHERE Usuario=@Username AND Clave=@Password";
 
+                //string hash = "f0xle@rn";
+                //byte[] datos = UTF8Encoding.UTF8.GetBytes(clave);
+                //using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+                //{
+
+                //    //UTF8Encoding utf8 = new UTF8Encoding();
+                //    byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+                //    using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
+                //    {
+                //        ICryptoTransform transform = tripDes.CreateDecryptor();
+                //        byte[] results = transform.TransformFinalBlock(datos, 0, datos.Length);
+                //        clave = UTF8Encoding.UTF8.GetString(results);
+                //    }
+
+
+                //}
+
                 MySqlCommand sqlCmd = new MySqlCommand(query, sqlCon);
                 sqlCmd.CommandType = CommandType.Text;
-                sqlCmd.Parameters.AddWithValue("@Username", txbUsername.Text);
-                sqlCmd.Parameters.AddWithValue("@Password", txbPassword.Password);
+                sqlCmd.Parameters.AddWithValue("@Username", usuario);
+                sqlCmd.Parameters.AddWithValue("@Password", clave);
 
                 int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
             

@@ -60,5 +60,4 @@ C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\bin\Debug\Mat
 C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\App.baml
 C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\View\RegistroWindow.g.cs
 C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\obj\Debug\View\RegistroWindow.baml
-C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\bin\Debug\MySql.Data.dll
 C:\GitHubProjects\DI\ProyectoSQL\007_ConexionBBDD\007_ConexionBBDD\bin\Debug\MySql.Data.xml

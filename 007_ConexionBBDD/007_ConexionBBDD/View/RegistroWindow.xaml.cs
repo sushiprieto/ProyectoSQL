@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Security.Cryptography;
 
 namespace _007_ConexionBBDD.View
 {
@@ -34,38 +35,84 @@ namespace _007_ConexionBBDD.View
 
         }
 
+        //static string Encriptar (string value)
+        //{
+
+        //    using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+        //    {
+
+        //        UTF8Encoding utf8 = new UTF8Encoding();
+        //        byte[] datos = md5.ComputeHash(utf8.GetBytes(value));
+
+        //        return Convert.ToBase64String(datos);
+
+        //    }
+
+        //}
+
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
 
+            string usuario = txbUsuario.Text;
             string clave = txbClave.Text;
             string claveConfirm = txbClaveConfirm.Text;
 
-            if (clave.Equals(claveConfirm))
+            if (usuario.Equals("") || clave.Equals("") || claveConfirm.Equals(""))
             {
 
-                try
-                {
-
-                    conn.Registro(txbUsuario.Text, clave);
-
-                    Close();
-
-                }
-                catch (Exception ex)
-                {
-
-                    MessageBox.Show(ex.Message);
-
-                }
+                MessageBox.Show("No puede haber campos vacios", "Alerta", MessageBoxButton.OK, MessageBoxImage.Warning);
 
             }
             else
             {
 
-                MessageBox.Show("Las contraseñas no coinciden");
+                if (clave.Equals(claveConfirm))
+                {
+
+                    try
+                    {
+
+                        //string claveEncriptada = Encriptar(clave);
+
+                        //string hash = "f0xle@rn";
+                        //byte[] datos = UTF8Encoding.UTF8.GetBytes(clave);
+                        //using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+                        //{
+
+                        //    //UTF8Encoding utf8 = new UTF8Encoding();
+                        //    byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+                        //    using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
+                        //    {
+                        //        ICryptoTransform transform = tripDes.CreateEncryptor();
+                        //        byte[] results = transform.TransformFinalBlock(datos, 0, datos.Length);
+                        //        clave = Convert.ToBase64String(results, 0, results.Length);
+                        //    }
+
+
+                        //}
+
+                        conn.Registro(usuario, clave);
+
+                        Close();
+
+                    }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show(ex.Message);
+
+                    }
+
+                }
+                else
+                {
+
+                    MessageBox.Show("Las contraseñas no coinciden");
+
+                }
 
             }
-       
+              
         }
 
         private void CenterWindowOnScreen()
