@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:_007_ConexionBBDD.View"
         xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="400" Width="350" FontSize="14" Background="#C8E6C9">
+        Title="LoginWindow" Height="400" Width="350" FontSize="14" Background="#C8E6C9" ResizeMode="NoResize" WindowStyle="None">
     
     <Border Background="#2e3137" CornerRadius="20" Margin="20">
         
@@ -30,10 +30,11 @@
 
             <StackPanel Orientation="Horizontal">
                 <materialdesign:PackIcon Kind="Login" VerticalAlignment="Center"/>
-                <TextBlock Text="Registrarse" Foreground="#C8E6C9" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp"/>
+                <TextBlock Text="Registrarse" Foreground="#f44336" MouseLeftButtonUp="TextBlock_MouseLeftButtonUp"/>
             </StackPanel>
 
             <Button x:Name="btnSubmit" Click="btnSubmit_Click" Content="Logearse" Margin="60, 20, 60, 0" Style="{StaticResource MaterialDesignRaisedAccentButton}" ToolTip="Logearse a la aplicación"/>
+            <Button x:Name="btnCancel" Click="btnCancel_Click" Content="Cancelar" Margin="60, 20, 60, 0" Style="{StaticResource MaterialDesignRaisedAccentButton}" ToolTip="Salir de la aplicación"/>
 
         </StackPanel>
         

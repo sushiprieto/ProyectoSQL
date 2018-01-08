@@ -78,5 +78,9 @@ namespace _007_ConexionBBDD.View
             this.Top = (screenHeight / 2) - (windowHeight / 2);
         }
 
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

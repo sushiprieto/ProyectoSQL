@@ -74,6 +74,14 @@ namespace _007_ConexionBBDD.View {
         #line default
         #line hidden
         
+        
+        #line 40 "..\..\..\View\RegistroWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btnCancel;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -118,6 +126,15 @@ namespace _007_ConexionBBDD.View {
             
             #line 39 "..\..\..\View\RegistroWindow.xaml"
             this.btnRegistrar.Click += new System.Windows.RoutedEventHandler(this.btnRegistrar_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 5:
+            this.btnCancel = ((System.Windows.Controls.Button)(target));
+            
+            #line 40 "..\..\..\View\RegistroWindow.xaml"
+            this.btnCancel.Click += new System.Windows.RoutedEventHandler(this.btnCancel_Click);
             
             #line default
             #line hidden

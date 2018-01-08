@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:_007_ConexionBBDD.View"
         xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="RegistroWindow" Height="300" Width="300">
+        Title="RegistroWindow" Height="350" Width="300" ResizeMode="NoResize" WindowStyle="None">
     <StackPanel >
 
         <Grid Margin="0,20,0,0">
@@ -37,6 +37,7 @@
         </Grid>
 
         <Button x:Name="btnRegistrar" Click="btnRegistrar_Click" Content="Registrar" Margin="60, 20, 60, 0" Style="{StaticResource MaterialDesignRaisedAccentButton}" ToolTip="Registrarse"/>
+        <Button x:Name="btnCancel" Click="btnCancel_Click" Content="Cancelar" Margin="60, 20, 60, 0" Style="{StaticResource MaterialDesignRaisedAccentButton}" ToolTip="Salir de la aplicación"/>
 
     </StackPanel>
 </Window>
