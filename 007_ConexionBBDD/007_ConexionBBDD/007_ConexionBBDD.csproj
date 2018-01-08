@@ -89,7 +89,6 @@
       <DependentUpon>AlumnoDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Model\clsConexion.cs" />
-    <Compile Include="ViewModels\AnotherCommandImplementation.cs" />
     <Compile Include="View\AddWindow.xaml.cs">
       <DependentUpon>AddWindow.xaml</DependentUpon>
     </Compile>
@@ -101,6 +100,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\RegistroWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -143,7 +146,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\delete.png" />
     <Resource Include="Images\new.png" />
