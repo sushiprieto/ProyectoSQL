@@ -29,26 +29,57 @@ namespace _007_ConexionBBDD.View
             CenterWindowOnScreen();
         }
 
-        //static void Desencriptar(string value)
-        //{
-        //    string hash = "f0xle@rn";
-        //    byte[] datos = UTF8Encoding.UTF8.GetBytes(value);
-        //    using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
-        //    {
+        static string Encriptar(string value)
+        {
+            string hash = "MeC@go3nTO";
+            byte[] keyArray;
+            byte[] toEncrypt = UTF8Encoding.UTF8.GetBytes(value);
 
-        //        //UTF8Encoding utf8 = new UTF8Encoding();
-        //        byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
-        //        using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider(){Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
-        //        {
-        //            ICryptoTransform transform = tripDes.CreateDecryptor();
-        //            byte[] results = transform.TransformFinalBlock(datos, 0, datos.Length);
-        //            value = UTF8Encoding.UTF8.GetString(results);
-        //        }
-                
+            MD5CryptoServiceProvider hasmd5 = new MD5CryptoServiceProvider();
+            keyArray = hasmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
 
-        //    }
+            hasmd5.Clear();
 
-        //}
+            TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
+            tdes.Key = keyArray;
+            tdes.Mode = CipherMode.ECB;
+            tdes.Padding = PaddingMode.PKCS7;
+
+            ICryptoTransform cryptoTransform = tdes.CreateEncryptor();
+
+            byte[] resultArray = cryptoTransform.TransformFinalBlock(toEncrypt, 0, toEncrypt.Length);
+
+            tdes.Clear();
+
+            return Convert.ToBase64String(resultArray, 0, resultArray.Length);
+        }
+
+        static string Desencriptar(string value)
+        {
+
+            string hash = "MeC@go3nTO";
+            byte[] keyArray;
+            byte[] toEncrypt = Convert.FromBase64String(value);
+
+            MD5CryptoServiceProvider hasmd5 = new MD5CryptoServiceProvider();
+            keyArray = hasmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+
+            hasmd5.Clear();
+
+            TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
+            tdes.Key = keyArray;
+            tdes.Mode = CipherMode.ECB;
+            tdes.Padding = PaddingMode.PKCS7;
+
+            ICryptoTransform cryptoTransform = tdes.CreateDecryptor();
+           
+            byte[] resultArray = cryptoTransform.TransformFinalBlock(toEncrypt, 0, toEncrypt.Length);
+
+            tdes.Clear();
+
+            return UTF8Encoding.UTF8.GetString(resultArray);
+
+        }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
@@ -65,28 +96,16 @@ namespace _007_ConexionBBDD.View
                     sqlCon.Open();
 
                 String query = "SELECT COUNT(1) FROM loginalumno WHERE Usuario=@Username AND Clave=@Password";
+                
+                //Encriptamos la contraseña introducida para compararla con la clave encriptada de la BBDD
+                string claveEncriptada = Encriptar(clave);
 
-                //string hash = "f0xle@rn";
-                //byte[] datos = UTF8Encoding.UTF8.GetBytes(clave);
-                //using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
-                //{
-
-                //    //UTF8Encoding utf8 = new UTF8Encoding();
-                //    byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
-                //    using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
-                //    {
-                //        ICryptoTransform transform = tripDes.CreateDecryptor();
-                //        byte[] results = transform.TransformFinalBlock(datos, 0, datos.Length);
-                //        clave = UTF8Encoding.UTF8.GetString(results);
-                //    }
-
-
-                //}
+                //string claveDesencriptada = Desencriptar(claveEncriptada);
 
                 MySqlCommand sqlCmd = new MySqlCommand(query, sqlCon);
                 sqlCmd.CommandType = CommandType.Text;
                 sqlCmd.Parameters.AddWithValue("@Username", usuario);
-                sqlCmd.Parameters.AddWithValue("@Password", clave);
+                sqlCmd.Parameters.AddWithValue("@Password", claveEncriptada);
 
                 int count = Convert.ToInt32(sqlCmd.ExecuteScalar());
             

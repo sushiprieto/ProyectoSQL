@@ -35,20 +35,30 @@ namespace _007_ConexionBBDD.View
 
         }
 
-        //static string Encriptar (string value)
-        //{
+        static string Encriptar (string value)
+        {
+            string hash = "MeC@go3nTO";
+            byte[] keyArray;
+            byte[] toEncrypt = UTF8Encoding.UTF8.GetBytes(value);
 
-        //    using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
-        //    {
+            MD5CryptoServiceProvider hasmd5 = new MD5CryptoServiceProvider();
+            keyArray = hasmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
 
-        //        UTF8Encoding utf8 = new UTF8Encoding();
-        //        byte[] datos = md5.ComputeHash(utf8.GetBytes(value));
+            hasmd5.Clear();
 
-        //        return Convert.ToBase64String(datos);
+            TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
+            tdes.Key = keyArray;
+            tdes.Mode = CipherMode.ECB;
+            tdes.Padding = PaddingMode.PKCS7;
 
-        //    }
+            ICryptoTransform cryptoTransform = tdes.CreateEncryptor();
 
-        //}
+            byte[] resultArray = cryptoTransform.TransformFinalBlock(toEncrypt, 0, toEncrypt.Length);
+
+            tdes.Clear();
+
+            return Convert.ToBase64String(resultArray, 0, resultArray.Length);
+        }
 
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
@@ -72,26 +82,10 @@ namespace _007_ConexionBBDD.View
                     try
                     {
 
-                        //string claveEncriptada = Encriptar(clave);
-
-                        //string hash = "f0xle@rn";
-                        //byte[] datos = UTF8Encoding.UTF8.GetBytes(clave);
-                        //using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
-                        //{
-
-                        //    //UTF8Encoding utf8 = new UTF8Encoding();
-                        //    byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
-                        //    using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
-                        //    {
-                        //        ICryptoTransform transform = tripDes.CreateEncryptor();
-                        //        byte[] results = transform.TransformFinalBlock(datos, 0, datos.Length);
-                        //        clave = Convert.ToBase64String(results, 0, results.Length);
-                        //    }
-
-
-                        //}
-
-                        conn.Registro(usuario, clave);
+                        //Encriptamos la clave para introducirla en la BBDD
+                        string claveEncriptada = Encriptar(clave);
+                                                
+                        conn.Registro(usuario, claveEncriptada);
 
                         Close();
 
