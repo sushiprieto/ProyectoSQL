@@ -113,7 +113,8 @@ namespace _007_ConexionBBDD.Model
                 connection = new MySqlConnection(connStr);
 
                 //This is my insert query in which i am taking input from the user through windows forms
-                string query = "INSERT INTO alumno(AlumnoID, Nombre, Apellidos, Curso, Sexo, NotaExamen) VALUES('" + id + "','" + nombre + "','" + apellidos + "','" + curso + "','" + sexo + "','" + nota + "');";
+                string query = "INSERT INTO alumno(AlumnoID, Nombre, Apellidos, Curso, Sexo, NotaExamen) VALUES('" 
+                    + id + "','" + nombre + "','" + apellidos + "','" + curso + "','" + sexo + "','" + nota + "');";
 
                 //This is  MySqlConnection here i have created the object and pass my connection string.
                 connection = new MySqlConnection(connStr);
@@ -151,7 +152,8 @@ namespace _007_ConexionBBDD.Model
                 connection = new MySqlConnection(connStr);
 
                 //This is my insert query in which i am taking input from the user through windows forms
-                string query = "UPDATE alumno SET Nombre = '" + nombre + "', Apellidos = '" + apellidos + "', Curso = '" + curso + "', Sexo = '" + sexo + "', NotaExamen = '" + nota + "'  WHERE AlumnoID = " + id + ";";
+                string query = "UPDATE alumno SET Nombre = '" + nombre + "', Apellidos = '" + apellidos 
+                    + "', Curso = '" + curso + "', Sexo = '" + sexo + "', NotaExamen = '" + nota + "'  WHERE AlumnoID = " + id + ";";
 
                 //This is  MySqlConnection here i have created the object and pass my connection string.
                 connection = new MySqlConnection(connStr);
